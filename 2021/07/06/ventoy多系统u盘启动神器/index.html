@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Ventoy是一个制作可启动U盘的开源工具。有了Ventoy你就无需反复地格式化U盘，你只需要把ISO文件拷贝到U盘里面就可以启动了，无需其他操作。 你可以一次性拷贝很多个不同类型的ISO文件，在启动时Ventoy会显示一个菜单来选择(截图)。 无差异支持Legacy BIOS和UEFI模式。目前已经测试了各类超过260+ 个ISO文件(列表). 同时提出了”Ventoy Compatible”的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ventoy多系统U盘启动神器">
+<meta property="og:url" content="http://example.com/2021/07/06/ventoy%E5%A4%9A%E7%B3%BB%E7%BB%9Fu%E7%9B%98%E5%90%AF%E5%8A%A8%E7%A5%9E%E5%99%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Ventoy是一个制作可启动U盘的开源工具。有了Ventoy你就无需反复地格式化U盘，你只需要把ISO文件拷贝到U盘里面就可以启动了，无需其他操作。 你可以一次性拷贝很多个不同类型的ISO文件，在启动时Ventoy会显示一个菜单来选择(截图)。 无差异支持Legacy BIOS和UEFI模式。目前已经测试了各类超过260+ 个ISO文件(列表). 同时提出了”Ventoy Compatible”的">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://soikc.co/WordPress/wp-content/uploads/2021/07/image-3.png">
+<meta property="og:image" content="https://soikc.co/WordPress/wp-content/uploads/2021/07/ventoy2disk_cn.png">
+<meta property="og:image" content="https://soikc.co/WordPress/wp-content/uploads/2021/07/screen_uefi.png">
+<meta property="article:published_time" content="2021-07-05T16:23:56.000Z">
+<meta property="article:modified_time" content="2023-03-01T04:02:33.451Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="U盘启动">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://soikc.co/WordPress/wp-content/uploads/2021/07/image-3.png">
+
+
+<link rel="canonical" href="http://example.com/2021/07/06/ventoy%E5%A4%9A%E7%B3%BB%E7%BB%9Fu%E7%9B%98%E5%90%AF%E5%8A%A8%E7%A5%9E%E5%99%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/07/06/ventoy%E5%A4%9A%E7%B3%BB%E7%BB%9Fu%E7%9B%98%E5%90%AF%E5%8A%A8%E7%A5%9E%E5%99%A8/","path":"2021/07/06/ventoy多系统u盘启动神器/","title":"Ventoy多系统U盘启动神器"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Ventoy多系统U盘启动神器 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ventoy-%E7%89%B9%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">Ventoy 特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">安装与使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C"><span class="nav-number">3.</span> <span class="nav-text">使用体验</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/06/ventoy%E5%A4%9A%E7%B3%BB%E7%BB%9Fu%E7%9B%98%E5%90%AF%E5%8A%A8%E7%A5%9E%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Ventoy多系统U盘启动神器 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ventoy多系统U盘启动神器
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-06 00:23:56" itemprop="dateCreated datePublished" datetime="2021-07-06T00:23:56+08:00">2021-07-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-01 12:02:33" itemprop="dateModified" datetime="2023-03-01T12:02:33+08:00">2023-03-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/e8-bd-af-e4-bb-b6/" itemprop="url" rel="index"><span itemprop="name">%e8%bd%af%e4%bb%b6</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/e8-bd-af-e4-bb-b6/Windows%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">Windows工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Ventoy是一个制作可启动U盘的开源工具。有了Ventoy你就无需反复地格式化U盘，你只需要把ISO文件拷贝到U盘里面就可以启动了，无需其他操作。 你可以一次性拷贝很多个不同类型的ISO文件，在启动时Ventoy会显示一个菜单来选择(截图)。 无差异支持Legacy BIOS和UEFI模式。目前已经测试了各类超过260+ 个ISO文件(列表). 同时提出了”Ventoy Compatible”的概念，若被支持则理论上可以启动任何ISO文件.</p>
+<p><img src="https://soikc.co/WordPress/wp-content/uploads/2021/07/image-3.png"></p>
+<p>不知道大家有没有遇到这种情况，将某个系统镜像写入U盘后，下次又换另外的镜像又得格式化U盘重新写入，非常的繁琐。有了Ventoy可以很方便的解决这个问题，可以将WinPE、Windows、Linux等多种系统集合到一起，启动的时候按需选择，加入新的系统也不需要再次格式化U盘</p>
+<h3 id="Ventoy-特点"><a href="#Ventoy-特点" class="headerlink" title="Ventoy 特点"></a>Ventoy 特点</h3><ul>
+<li>100% 开源 (许可证)</li>
+<li>使用简单 (使用说明)</li>
+<li>快速 (拷贝文件有多快就有多快)</li>
+<li>直接从ISO文件启动，无需解开</li>
+<li>无差异支持Legacy + UEFI 模式</li>
+<li>UEFI 模式支持安全启动 (Secure Boot) (1.0.07版本开始) 说明</li>
+<li>支持持久化 (1.0.11版本开始) 说明</li>
+<li>支持直接启动WIM文件(Legacy + UEFI) (1.0.12+) 说明</li>
+<li>支持自动安装部署(1.0.09+) 说明</li>
+<li>支持超过4GB的ISO文件</li>
+<li>保留ISO原始的启动菜单风格(Legacy &amp; UEFI)</li>
+<li>支持大部分常见操作系统, 已测试260+ 个ISO文件</li>
+<li>不仅仅是启动，而是完整的安装过程</li>
+<li>ISO文件支持列表模式或目录树模式显示 说明</li>
+<li>提出 “Ventoy Compatible” 概念</li>
+<li>支持插件扩展</li>
+<li>启动过程中支持U盘设置写保护</li>
+<li>不影响U盘日常普通使用</li>
+<li>版本升级时数据不会丢失</li>
+<li>无需跟随操作系统升级而升级Ventoy</li>
+</ul>
+<h3 id="安装与使用"><a href="#安装与使用" class="headerlink" title="安装与使用"></a>安装与使用</h3><ul>
+<li>下载地址：<a target="_blank" rel="noopener" href="https://github.com/ventoy/Ventoy/releases">ventoy-1.0.12-windows.zip</a></li>
+</ul>
+<p>安装Ventoy后打开界面如下图，我们需要准备一个U盘（请提前备份数据），选择您的U盘点安装即可，<strong>注意：首次安装Ventoy会将U盘格式化，请务必备份数据。</strong></p>
+<p><img src="https://soikc.co/WordPress/wp-content/uploads/2021/07/ventoy2disk_cn.png"></p>
+<p>然后将您的系统镜像(<code>.iso</code>)放到U盘的任意目录下，Ventoy会自动进行遍历查找您的系统镜像。BIOS中设置U盘为第一启动方式，即可看到多个启动方式。后面需要添加其它系统，直接将该系统镜像拷贝到U盘任意目录即可。</p>
+<p><img src="https://soikc.co/WordPress/wp-content/uploads/2021/07/screen_uefi.png"></p>
+<h3 id="使用体验"><a href="#使用体验" class="headerlink" title="使用体验"></a>使用体验</h3><p>之前博客介绍过另一款多系统U盘启动工具：<a target="_blank" rel="noopener" href="https://www.xiaoz.me/archives/6926">WinSetupFromUSB多系统U盘引导启动工具</a>，不过该工具每次添加一个新系统的时候都需要打开此软件写入镜像，使用起来没有Ventoy方便，也没有Ventoy简单。目前xiaoz已切换为Ventoy，既简单又方便。如果经常需要安装系统的同学，Ventoy是不可缺少的神器，推荐大家使用。</p>
+<ul>
+<li>Ventoy官网：<a target="_blank" rel="noopener" href="https://www.ventoy.net/cn/index.html">https://www.ventoy.net/cn/index.html</a></li>
+<li>项目地址：<a target="_blank" rel="noopener" href="https://github.com/ventoy/Ventoy">https://github.com/ventoy/Ventoy</a></li>
+</ul>
+<blockquote>
+<p>本文转自 <a target="_blank" rel="noopener" href="https://www.xiaoz.me/archives/14984">https://www.xiaoz.me/archives/14984</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/U%E7%9B%98%E5%90%AF%E5%8A%A8/" rel="tag"># U盘启动</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/05/%E5%85%8D%E8%B4%B9%E5%A5%BD%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7dbeaver/" rel="prev" title="免费好用的数据库管理工具DBeaver">
+                  <i class="fa fa-chevron-left"></i> 免费好用的数据库管理工具DBeaver
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/07/06/nodejs%E5%88%A9%E7%94%A8string-random%E7%94%9F%E6%88%90%E6%8C%87%E5%AE%9A%E7%9A%84%E9%9A%8F%E6%9C%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="next" title="nodejs利用string-random生成指定的随机字符串">
+                  nodejs利用string-random生成指定的随机字符串 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="原文:http:&#x2F;&#x2F;www.win10.systems&#x2F;tips&#x2F;2019-02-24&#x2F;12769.html Ext4或扩展文件系统版本4是Linux的文件系统。 如果您有一个Windows 10 + Linux双启动或在Ext4中将其格式化的硬盘驱动器，您如何阅读Windows 10？ 虽然Linux支持NTFS，但Windows 10不支持Ext4。 所以Windows 10读取ext4的问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何在Windows 10中阅读Ext4">
+<meta property="og:url" content="http://example.com/2021/09/21/%E5%A6%82%E4%BD%95%E5%9C%A8windows-10%E4%B8%AD%E9%98%85%E8%AF%BBext4/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="原文:http:&#x2F;&#x2F;www.win10.systems&#x2F;tips&#x2F;2019-02-24&#x2F;12769.html Ext4或扩展文件系统版本4是Linux的文件系统。 如果您有一个Windows 10 + Linux双启动或在Ext4中将其格式化的硬盘驱动器，您如何阅读Windows 10？ 虽然Linux支持NTFS，但Windows 10不支持Ext4。 所以Windows 10读取ext4的问题">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.win10.systems/d/file/2019-02-24/a23d90f92f016af6acb8af737f382e97.jpg">
+<meta property="article:published_time" content="2021-09-21T03:54:42.000Z">
+<meta property="article:modified_time" content="2023-03-01T04:02:33.503Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="ext4">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.win10.systems/d/file/2019-02-24/a23d90f92f016af6acb8af737f382e97.jpg">
+
+
+<link rel="canonical" href="http://example.com/2021/09/21/%E5%A6%82%E4%BD%95%E5%9C%A8windows-10%E4%B8%AD%E9%98%85%E8%AF%BBext4/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/09/21/%E5%A6%82%E4%BD%95%E5%9C%A8windows-10%E4%B8%AD%E9%98%85%E8%AF%BBext4/","path":"2021/09/21/如何在windows-10中阅读ext4/","title":"如何在Windows 10中阅读Ext4"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>如何在Windows 10中阅读Ext4 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/21/%E5%A6%82%E4%BD%95%E5%9C%A8windows-10%E4%B8%AD%E9%98%85%E8%AF%BBext4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="如何在Windows 10中阅读Ext4 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何在Windows 10中阅读Ext4
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-09-21 11:54:42" itemprop="dateCreated datePublished" datetime="2021-09-21T11:54:42+08:00">2021-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-01 12:02:33" itemprop="dateModified" datetime="2023-03-01T12:02:33+08:00">2023-03-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/e8-bd-af-e4-bb-b6/" itemprop="url" rel="index"><span itemprop="name">%e8%bd%af%e4%bb%b6</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/e8-bd-af-e4-bb-b6/Windows%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">Windows工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>原文:<a target="_blank" rel="noopener" href="http://www.win10.systems/tips/2019-02-24/12769.html">http://www.win10.systems/tips/2019-02-24/12769.html</a></p>
+<p>Ext4或扩展文件系统版本4是Linux的文件系统。 如果您有一个Windows 10 + Linux双启动或在Ext4中将其格式化的硬盘驱动器，您如何阅读Windows 10？ 虽然Linux支持NTFS，但Windows 10不支持Ext4。 所以<a target="_blank" rel="noopener" href="http://www.ghost580.com/">Windows 10</a>读取ext4的问题的答案是 - 不！ 但您可以使用第三方软件在Windows 10上读取ext4。</p>
+<p>在<a target="_blank" rel="noopener" href="http://www.ghost580.com/">Windows 10</a>中阅读Ext4</p>
+<p>在我们开始之前，请确保永远不要从Windows写入EXT4驱动器。 EXT格式有记录日志和将文件写入系统的方式。 如果您找到可以执行此操作的软件，则无法保证在Linux系统上使用它时，它们是可读的。</p>
+<p>1] DiskInternals Linux Reader  </p>
+<p><img src="http://www.win10.systems/d/file/2019-02-24/a23d90f92f016af6acb8af737f382e97.jpg" alt="如何在Windows 10中阅读Ext4">  </p>
+<p>DiskInternals Linux Reader是一款免费软件，它安装了驱动程序，允许您从Windows的文件资源管理器中读取Ext4分区。它仅支持读取，即查看和复制文件和文件夹。在Root上，即top文件夹时，它会显示一些统计信息，例如不同类型数据的计数。</p>
+<p>2] 7-Zip Archiver</p>
+<p>如果您有EXT4的图像，即驱动器映像或完整的操作系统映像，则可以使用7-Zip Archiver读取其中的所有文件。</p>
+<p>3] Ext2Read</p>
+<p>它是Linux文件系统格式的文件浏览器（Ext2，Ext3，LVM2，Ext4）。您可以从Ext4查看，复制文件和文件夹到Windows 10分区。由于它支持文件和文件夹的递归复制，因此当您想要复制大量文件时，它非常理想。它还支持基于LRU的块缓存，以实现更快的并发访问</p>
+<p>如果您有双启动系统，它可以访问Windows中的Linux分区。您可以从此处下载，但请注意该软件尚未更新。但它是免费的并且有效。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ext4/" rel="tag"># ext4</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/09/21/bmp%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3%E8%BD%AC%E8%BD%BD/" rel="prev" title="BMP图像数据格式详解转载">
+                  <i class="fa fa-chevron-left"></i> BMP图像数据格式详解转载
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/02/22/hello-world/" rel="next" title="Hello World">
+                  Hello World <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
